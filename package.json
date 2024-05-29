@@ -2,7 +2,13 @@
   "name": "typesafe-path",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.umd.js"
+    }
+  },
   "scripts": {
     "build": "tsc --noEmit && vite build",
     "test": "vitest"

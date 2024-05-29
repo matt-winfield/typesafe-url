@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`resolve > should throw an error if the path type doesn't match 1`] = `
+[ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "id"
+    ],
+    "message": "Expected number, received string"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "test"
+    ],
+    "message": "Expected number, received string"
+  }
+]]
+`;
+
+exports[`resolve > should throw an error if the query type doesn't match 1`] = `
+[ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "test1"
+    ],
+    "message": "Expected number, received string"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "test2"
+    ],
+    "message": "Expected number, received string"
+  }
+]]
+`;

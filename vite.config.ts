@@ -15,6 +15,14 @@ export default defineConfig({
       name: "typesafe-routes",
       fileName: "index",
     },
+    rollupOptions: {
+      external: ["zod"],
+      output: {
+        globals: {
+          zod: "zod",
+        },
+      },
+    },
   },
   test: {
     globals: true,

@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { definePath, path } from ".";
+import { definePath, path } from "./path";
 
-describe("typesafe-path", () => {
+describe("path", () => {
   it("should serialize query params", () => {
     const testPath = definePath("/test/path", {
       query: z.object({
@@ -78,5 +78,39 @@ describe("typesafe-path", () => {
     });
 
     expect(result).toBe("/test/path?test[0]=test&test[1]=test2");
+  });
+
+  it("should replace path params", () => {
+    const testPath = definePath("/test/:id/path", {
+      params: z.object({
+        id: z.string(),
+      }),
+    });
+
+    const result = path(testPath, {
+      params: {
+        id: "test",
+      },
+    });
+
+    expect(result).toBe("/test/test/path");
+  });
+
+  it("should replace multiple path params", () => {
+    const testPath = definePath("/test/:id/:test/path", {
+      params: z.object({
+        id: z.string(),
+        test: z.string(),
+      }),
+    });
+
+    const result = path(testPath, {
+      params: {
+        id: "test",
+        test: "test2",
+      },
+    });
+
+    expect(result).toBe("/test/test/test2/path");
   });
 });
