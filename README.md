@@ -7,7 +7,7 @@ It uses [`zod`](https://zod.dev/) to define the schema of the URL and query para
 ## Installation
 
 ```bash
-npm install @matt-winfield/typesafe-url
+npm install @matt-winfield/typesafe-url zod
 ```
 
 ## Basic usage
